@@ -1,0 +1,151 @@
+:root {
+  --green-900: #0b2f20;
+  --green-800: #11402c;
+  --green-700: #1a5a40;
+  --mint: #cfeee0;
+  --ink: #0d0f0e;
+  --cream: #f6f2e8;
+  --n: 1px;
+  --glide: 1.6s;
+  --mt: 0%;
+  --mb: 0%;
+  --ml: 0%;
+  --mr: 0%;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--green-900);
+  color: #fff;
+  font-family: 'Inter Tight', 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.admin-mode {
+  overflow: auto;
+  background: #081a13;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--mint);
+  color: var(--green-900);
+}
+
+/* ---------------------------------------------------------------- boot */
+
+.boot {
+  height: 100%;
+  display: grid;
+  place-content: center;
+  gap: 18px;
+  justify-items: center;
+  background: radial-gradient(120% 120% at 50% 0%, #14503a 0%, #0b2f20 60%);
+}
+
+.boot-mark {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  font-size: clamp(28px, 6vw, 54px);
+  opacity: 0.92;
+}
+
+.boot-line {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--mint), transparent);
+  animation: bootPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes bootPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleX(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* ------------------------------------------------------------- shared UI */
+
+.glass-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(11, 47, 32, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
